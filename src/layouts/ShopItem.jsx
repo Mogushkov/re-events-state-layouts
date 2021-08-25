@@ -9,7 +9,7 @@ export default function ShopItem({ card }) {
 
     return (
         <li className='item' style={styles}>
-            <div className='img'></div>
+            <div className='image'></div>
             <h2 className='card__name'>{name}</h2>
             <div className='card__color'>{color}</div>
             <span className='price'>${price}</span>

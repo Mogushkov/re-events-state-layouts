@@ -1,26 +1,53 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import IconSwitch from '../layouts/IconSwitch';
 import CardsView from '../layouts/CardsView';
 import ListView from '../layouts/ListView';
 
-export default class Store extends React.Component {
-    constructor(props) {
-        super(props);
-        this.products = props.products;
-        this.state = {icon: 'view_list'};
-    }
+const products = [{
+    name: "Nike Metcon 2",
+    price: "130",
+    color: "red",
+    img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/1.jpg"
+  }, {
+    name: "Nike Metcon 2",
+    price: "130",
+    color: "green",
+    img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/2.jpg"
+  }, {
+    name: "Nike Metcon 2",
+    price: "130",
+    color: "blue",
+    img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/3.jpg"
+  }, {
+    name: "Nike Metcon 2",
+    price: "130",
+    color: "black",
+    img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/4.jpg"
+  }, {
+    name: "Nike free run",
+    price: "170",
+    color: "black",
+    img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/7.jpg"
+  }, {
+    name: "Nike Metcon 3",
+    price: "150",
+    color: "green",
+    img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/5.jpg"
+  }];
+  
+const viewModes = ['view_module', 'view_list'];
 
-    render() {
-        return (
-            <>
-            <IconSwitch icon={this.state.icon} onSwitch={(icon) => this.setState({icon})} />
-            {this.state.icon === 'view_list' ? <CardsView cards={this.products} /> : <ListView cards={this.products} />}  
-            </>
-        )    
-    }
-}
+export default function Store() {
+  const [view, changeView] = useState(0);
 
-Store.propTypes = {
-    products: PropTypes.array.isRequired
+  const onSwitch = () => {
+    changeView(prev => 1 - prev);
+  }
+
+  return (
+    <div className="Store">
+      <IconSwitch icon={viewModes[1 - view]} onSwitch={onSwitch} />
+      {viewModes[view] === 'view_module' ? <CardsView cards={products} /> : <ListView items={products} />}
+    </div>
+  );
 }
