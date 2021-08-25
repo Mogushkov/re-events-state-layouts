@@ -47,7 +47,7 @@ export default function Store() {
   return (
     <div className="Store">
       <IconSwitch icon={viewModes[1 - view]} onSwitch={onSwitch} />
-      {viewModes[view] === 'view_module' ? <CardsView cards={products} /> : <ListView items={products} />}
+      {viewModes[view] === 'view_module' ? <CardsView cards={products} /> : <ListView cards={products} />}
     </div>
   );
 }
