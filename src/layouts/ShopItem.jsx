@@ -8,12 +8,12 @@ export default function ShopItem({ card }) {
     }
 
     return (
-        <li className='item' style={styles}>
-            <div className='image'></div>
-            <h2 className='card__name'>{name}</h2>
-            <div className='card__color'>{color}</div>
-            <span className='price'>${price}</span>
-            <button className='btn'>ADD TO CARD</button>
+        <li className="item" style={styles}>
+            <div className="image"></div>
+            <h2 className="card__name">{name}</h2>
+            <div className="card__color">{color}</div>
+            <span className="price">${price}</span>
+            <button className="btn">ADD TO CARD</button>
         </li>
     )
 }
